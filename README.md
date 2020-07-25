@@ -553,22 +553,22 @@ cnx.close()
 ## Notes
 
 - This how-to assumes:
- - [Mac OS](https://en.wikipedia.org/wiki/MacOS_High_Sierra) [Homebrew](https://docs.brew.sh/) is installed (and `brew upgrade python` has been executed to get the latest versions of `python3` and `pip3`). There are many other ways to install [Python](https://docs.python.org/3/) &amp; [MySQL](https://dev.mysql.com/doc/) &mdash; this is just the easiest one.
- - The [`zsh`](https://www.theverge.com/2019/6/4/18651872/apple-macos-catalina-zsh-bash-shell-replacement-features) commands (in <span style="color:green;">green</span>) are executed from <span style="color:red;">`~/work/mysql-example`</span> &mdash; which includes the files:
+  - [Mac OS](https://en.wikipedia.org/wiki/MacOS_High_Sierra) [Homebrew](https://docs.brew.sh/) is installed (and `brew upgrade python` has been executed to get the latest versions of `python3` and `pip3`). There are many other ways to install [Python](https://docs.python.org/3/) &amp; [MySQL](https://dev.mysql.com/doc/) &mdash; this is just the easiest one.
+  - The [`zsh`](https://www.theverge.com/2019/6/4/18651872/apple-macos-catalina-zsh-bash-shell-replacement-features) commands (in <span style="color:green;">green</span>) are executed from <span style="color:red;">`~/work/mysql-example`</span> &mdash; which includes the files:
 `README.md` (this file),
 `data/pioneers.computer.csv`,
 `doc/mysql.pdf`,
 `src/mysql.sql`,
 `src/testmysql.py`.
 - [SQL](https://dev.mysql.com/doc/) can be a bit fussy.
- - By convention, SQL commands are in UPPERCASE, other text is in appropriate mixed case.
- - The `LOAD DATA INFILE '~/work/mysql-example/pioneers.computer.csv' ...` command requires an absolute (glob-pattern) path, the proper line termination (in this case `'\r\n'`), no blank / extra lines, and every field present that is marked ` NOT NULL`.
+  - By convention, SQL commands are in UPPERCASE, other text is in appropriate mixed case.
+  - The `LOAD DATA INFILE '~/work/mysql-example/pioneers.computer.csv' ...` command requires an absolute (glob-pattern) path, the proper line termination (in this case `'\r\n'`), no blank / extra lines, and every field present that is marked ` NOT NULL`.
 - Every `SELECT` in this example ends with `WHERE sex = "F"`, *which is not the entire database*. There are 19 women pioneers out of 160 in this database, which limits the output to one ninth of it's potential total length for the purposes of this document.
 - The [Python](https://docs.python.org/3/) `mysql.connector` module exists in several versions and it took a bit to find the correct one for Python 3. (Also, *do not name your Python file `mysql.py`* or you will have trouble importing the `mysql` module you expect.)
 - *This test is not secure*.
- - The MySQL user `CREATE USER 'mysql'@'localhost' IDENTIFIED BY 'mysql';` with an easy-to-guess password is a terrible idea.
- - Allowing direct local import of data through a `~/.my.cnf` file is good for local testing, but not secure in a deployed system.
- - Having `'password': 'mysql',` as a key:value pair in the Python code is also not a good idea.
+  - The MySQL user `CREATE USER 'mysql'@'localhost' IDENTIFIED BY 'mysql';` with an easy-to-guess password is a terrible idea.
+  - Allowing direct local import of data through a `~/.my.cnf` file is good for local testing, but not secure in a deployed system.
+  - Having `'password': 'mysql',` as a key:value pair in the Python code is also not a good idea.
 
 Have fun!
 
