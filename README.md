@@ -572,4 +572,7 @@ cnx.close()
 
 Have fun!
 
-<p style='text-align: right;'><tt>DRAFT</tt> &mdash; v0.0.3 &mdash; 2020/07/24</p>
+
+<hr>
+
+[&#128279; permalink](https://psb-david-petty.github.io/mysql-example/) and [&#128297; repository](https://github.com/psb-david-petty/mysql-example/) for this page.
