@@ -490,7 +490,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
 <span style="color:green;">`mysql -u mysql -p --xml -e 'SELECT * FROM test.pioneers;'; > data/pioneers.xml`</span><br>
 <span style="color:green;">`Enter password :`</span><br>
 <span style="color:red;">`dcp:~/work/mysql-example$`</span>
-<span style="color:green;">`mysql -u mysql -p test -e 'TRUNCATE pioneers; \`</span><br>
+<span style="color:green;">`mysql -u mysql -p test -e 'TRUNCATE pioneers;`</span><br>
 <span style="color:green;">`> LOAD XML INFILE "~/work/mysql-example/data/pioneers.xml" INTO TABLE pioneers;'`</span><br>
 <span style="color:green;">`Enter password :`</span>
 
