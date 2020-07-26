@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS pioneers;
 CREATE TABLE pioneers (
     last_name VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NULL,
-    sex CHAR(1) NOT NULL,
+    gender CHAR(1) NOT NULL,
     first_year SMALLINT NOT NULL,
     email_school VARCHAR(255) NOT NULL,
     email_gmail VARCHAR(255) NOT NULL
@@ -93,14 +93,14 @@ LOAD DATA INFILE '~/work/mysql-example/data/pioneers.computer.csv'
 
 SHOW TABLES;
 SHOW COLUMNS FROM pioneers;
-SELECT * FROM pioneers WHERE sex = "F";
+SELECT * FROM pioneers WHERE gender = "F";
 ```
 
 <span style="color:red;">`dcp:~/work/mysql-example$`</span>
 <span style="color:green;">`cat data/pioneers.computer.csv`</span>
 
 ```csv
-First,Last,Sex,Year1,E-mail,G-Mail
+First,Last,Gender,Year1,E-mail,G-Mail
 Leonard,Adleman,M,1977,LeonardAdleman@pioneers.computer,"""Leonard Adleman"" <LeonardAdleman@pioneers.computer>,"
 Howard,Aiken,M,1944,HowardAiken@pioneers.computer,"""Howard Aiken"" <HowardAiken@pioneers.computer>,"
 ,Al-Jazari,M,1206,Al-Jazari@pioneers.computer,"""Al-Jazari"" <Al-Jazari@pioneers.computer>,"
@@ -273,11 +273,11 @@ pioneers
 Field	Type	Null	Key	Default	Extra
 first_name	varchar(255)	YES		NULL	
 last_name	varchar(255)	NO		NULL	
-sex	char(1)	NO		NULL	
+gender	char(1)	NO		NULL	
 first_year	smallint	NO		NULL	
 email_school	varchar(255)	NO		NULL	
 email_gmail	varchar(255)	NO		NULL	
-first_name	last_name	sex	first_year	email_school	email_gmail
+first_name	last_name	gender	first_year	email_school	email_gmail
 Frances	Allen	F	1970	FrancesAllen@pioneers.computer	"Frances Allen" <FrancesAllen@pioneers.computer>,
 Kathleen	Booth	F	1947	KathleenBooth@pioneers.computer	"Kathleen Booth" <KathleenBooth@pioneers.computer>,
 Lynn	Conway	F	1971	LynnConway@pioneers.computer	"Lynn Conway" <LynnConway@pioneers.computer>,
@@ -302,17 +302,17 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
 - Read this link to understand how to [import / export](http://zetcode.com/mysql/exportimport/) as .XML. For example:
 
 <span style="color:red;">`dcp:~/work/mysql-example$`</span>
-<span style="color:green;">`mysql -u mysql -p --xml -e 'SELECT * FROM test.pioneers WHERE sex = "F";'`</span><br>
+<span style="color:green;">`mysql -u mysql -p --xml -e 'SELECT * FROM test.pioneers WHERE gender = "F";'`</span><br>
 <span style="color:green;">`Enter password :`</span>
 
 ```xml
 <?xml version="1.0"?>
 
-<resultset statement="SELECT * FROM test.pioneers WHERE sex = &quot;F&quot;" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<resultset statement="SELECT * FROM test.pioneers WHERE gender = &quot;F&quot;" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <row>
 	<field name="first_name">Frances</field>
 	<field name="last_name">Allen</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1970</field>
 	<field name="email_school">FrancesAllen@pioneers.computer</field>
 	<field name="email_gmail">&quot;Frances Allen&quot; &lt;FrancesAllen@pioneers.computer&gt;,</field>
@@ -321,7 +321,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Kathleen</field>
 	<field name="last_name">Booth</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1947</field>
 	<field name="email_school">KathleenBooth@pioneers.computer</field>
 	<field name="email_gmail">&quot;Kathleen Booth&quot; &lt;KathleenBooth@pioneers.computer&gt;,</field>
@@ -330,7 +330,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Lynn</field>
 	<field name="last_name">Conway</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1971</field>
 	<field name="email_school">LynnConway@pioneers.computer</field>
 	<field name="email_gmail">&quot;Lynn Conway&quot; &lt;LynnConway@pioneers.computer&gt;,</field>
@@ -339,7 +339,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Elizabeth</field>
 	<field name="last_name">Feinler</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1974</field>
 	<field name="email_school">ElizabethFeinler@pioneers.computer</field>
 	<field name="email_gmail">&quot;Elizabeth Feinler&quot; &lt;ElizabethFeinler@pioneers.computer&gt;,</field>
@@ -348,7 +348,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Sally</field>
 	<field name="last_name">Floyd</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1994</field>
 	<field name="email_school">SallyFloyd@pioneers.computer</field>
 	<field name="email_gmail">&quot;Sally Floyd&quot; &lt;SallyFloyd@pioneers.computer&gt;,</field>
@@ -357,7 +357,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Shafi</field>
 	<field name="last_name">Goldwasser</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1989</field>
 	<field name="email_school">ShafiGoldwasser@pioneers.computer</field>
 	<field name="email_gmail">&quot;Shafi Goldwasser&quot; &lt;ShafiGoldwasser@pioneers.computer&gt;,</field>
@@ -366,7 +366,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Susan</field>
 	<field name="last_name">Graham</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">2011</field>
 	<field name="email_school">SusanGraham@pioneers.computer</field>
 	<field name="email_gmail">&quot;Susan Graham&quot; &lt;SusanGraham@pioneers.computer&gt;,</field>
@@ -375,7 +375,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Barbara</field>
 	<field name="last_name">Grosz</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1986</field>
 	<field name="email_school">BarbaraGrosz@pioneers.computer</field>
 	<field name="email_gmail">&quot;Barbara Grosz&quot; &lt;BarbaraGrosz@pioneers.computer&gt;,</field>
@@ -384,7 +384,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Margaret</field>
 	<field name="last_name">Hamilton</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1971</field>
 	<field name="email_school">MargaretHamilton@pioneers.computer</field>
 	<field name="email_gmail">&quot;Margaret Hamilton&quot; &lt;MargaretHamilton@pioneers.computer&gt;,</field>
@@ -393,7 +393,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Betty</field>
 	<field name="last_name">Holberton</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1968</field>
 	<field name="email_school">BettyHolberton@pioneers.computer</field>
 	<field name="email_gmail">&quot;Betty Holberton&quot; &lt;BettyHolberton@pioneers.computer&gt;,</field>
@@ -402,7 +402,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Grace</field>
 	<field name="last_name">Hopper</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1952</field>
 	<field name="email_school">GraceHopper@pioneers.computer</field>
 	<field name="email_gmail">&quot;Grace Hopper&quot; &lt;GraceHopper@pioneers.computer&gt;,</field>
@@ -411,7 +411,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Barbara</field>
 	<field name="last_name">Liskov</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1987</field>
 	<field name="email_school">BarbaraLiskov@pioneers.computer</field>
 	<field name="email_gmail">&quot;Barbara Liskov&quot; &lt;BarbaraLiskov@pioneers.computer&gt;,</field>
@@ -420,7 +420,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Ada</field>
 	<field name="last_name">Lovelace</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1852</field>
 	<field name="email_school">AdaLovelace@pioneers.computer</field>
 	<field name="email_gmail">&quot;Ada Lovelace&quot; &lt;AdaLovelace@pioneers.computer&gt;,</field>
@@ -429,7 +429,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Radia</field>
 	<field name="last_name">Perlman</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1985</field>
 	<field name="email_school">RadiaPerlman@pioneers.computer</field>
 	<field name="email_gmail">&quot;Radia Perlman&quot; &lt;RadiaPerlman@pioneers.computer&gt;,</field>
@@ -438,7 +438,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Rózsa</field>
 	<field name="last_name">Péter</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1932</field>
 	<field name="email_school">RózsaPéter@pioneers.computer</field>
 	<field name="email_gmail">&quot;Rózsa Péter&quot; &lt;RózsaPéter@pioneers.computer&gt;,</field>
@@ -447,7 +447,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Rosalind</field>
 	<field name="last_name">Picard</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1995</field>
 	<field name="email_school">RosalindPicard@pioneers.computer</field>
 	<field name="email_gmail">&quot;Rosalind Picard&quot; &lt;RosalindPicard@pioneers.computer&gt;,</field>
@@ -456,7 +456,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Jean</field>
 	<field name="last_name">Sammet</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1962</field>
 	<field name="email_school">JeanSammet@pioneers.computer</field>
 	<field name="email_gmail">&quot;Jean Sammet&quot; &lt;JeanSammet@pioneers.computer&gt;,</field>
@@ -465,7 +465,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Karen</field>
 	<field name="last_name">Spärck Jones</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1953</field>
 	<field name="email_school">KarenSpärckJones@pioneers.computer</field>
 	<field name="email_gmail">&quot;Karen Spärck Jones&quot; &lt;KarenSpärckJones@pioneers.computer&gt;,</field>
@@ -474,7 +474,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   <row>
 	<field name="first_name">Sophie</field>
 	<field name="last_name">Wilson</field>
-	<field name="sex">F</field>
+	<field name="gender">F</field>
 	<field name="first_year">1985</field>
 	<field name="email_school">SophieWilson@pioneers.computer</field>
 	<field name="email_gmail">&quot;Sophie Wilson&quot; &lt;SophieWilson@pioneers.computer&gt;,</field>
@@ -519,7 +519,7 @@ config = {
 }
 cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
-cursor.execute('SELECT * FROM pioneers WHERE sex = "F";')
+cursor.execute('SELECT * FROM pioneers WHERE gender = "F";')
 for record in cursor:
     print(record)
 cnx.close()
@@ -563,7 +563,7 @@ cnx.close()
 - [SQL](https://dev.mysql.com/doc/) can be a bit fussy.
   - By convention, SQL commands are in UPPERCASE, other text is in appropriate mixed case.
   - The `LOAD DATA INFILE '~/work/mysql-example/pioneers.computer.csv' ...` command requires an absolute (glob-pattern) path, the proper line termination (in this case `'\r\n'`), no blank / extra lines, and every field present that is marked ` NOT NULL`.
-- Every `SELECT` in this example ends with `WHERE sex = "F"`, *which is not the entire database*. There are 19 women pioneers out of 160 in this database, which limits the output to one ninth of it's potential total length for the purposes of this document.
+- Every `SELECT` in this example ends with `WHERE gender = "F"`, *which is not the entire database*. There are 19 women pioneers out of 160 in this database, which limits the output to one ninth of it's potential total length for the purposes of this document.
 - The [Python](https://docs.python.org/3/) `mysql.connector` module exists in several versions and it took a bit to find the correct one for Python 3. (Also, *do not name your Python file `mysql.py`* or you will have trouble importing the `mysql` module you expect.)
 - *This test is not secure*.
   - The MySQL user `CREATE USER 'mysql'@'localhost' IDENTIFIED BY 'mysql';` with an easy-to-guess password is a terrible idea.

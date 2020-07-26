@@ -15,7 +15,7 @@ config = {
 }
 cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
-cursor.execute('SELECT * FROM pioneers WHERE sex = "F";')
+cursor.execute('SELECT * FROM pioneers WHERE gender = "F";')
 for record in cursor:
     print(record)
 cnx.close()
