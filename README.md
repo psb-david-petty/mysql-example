@@ -299,7 +299,7 @@ Karen	Spärck Jones	F	1953	KarenSpärckJones@pioneers.computer	"Karen Spärck Jo
 Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilson@pioneers.computer>,
 ```
 
-- Read this link to understand how to [import / export](http://zetcode.com/mysql/exportimport/) as .XML. For example:
+- Read this link to understand how to [export / import](http://zetcode.com/mysql/exportimport/) a selection as [.XML](https://www.w3.org/TR/xml/). For example:
 
 <span style="color:red;">`dcp:~/work/mysql-example$`</span>
 <span style="color:green;">`mysql -u mysql -p --xml -e 'SELECT * FROM test.pioneers WHERE gender = "F";'`</span><br>
@@ -481,6 +481,26 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
   </row>
 </resultset>
 ```
+
+- To [export / import](http://zetcode.com/mysql/exportimport/) an entire table (in this case, `test.pioneers`) in [.XML](https://www.w3.org/TR/xml/) (in this case, `data/pioneers.xml`), use the following commands:
+
+<span style="color:red;">`dcp:~/work/mysql-example$`</span>
+<span style="color:green;">`# These commands assume the test database and the pioneers table already exist.`</span><br>
+<span style="color:red;">`dcp:~/work/mysql-example$`</span>
+<span style="color:green;">`mysql -u mysql -p --xml -e 'SELECT * FROM test.pioneers;'; > data/pioneers.xml`</span><br>
+<span style="color:green;">`Enter password :`</span><br>
+<span style="color:red;">`dcp:~/work/mysql-example$`</span>
+<span style="color:green;">`mysql -u mysql -p test -e 'TRUNCATE pioneers; LOAD XML INFILE "~/work/mysql-example/data/pioneers.xml" INTO TABLE pioneers;'`</span><br>
+<span style="color:green;">`Enter password :`</span>
+
+- Read this link to understand how to [`mysqldump`](https://www.tutorialspoint.com/mysql/mysql-database-export.htm) (in text format) and restore an entire database. For example (in this case, `test`):
+
+<span style="color:red;">`dcp:~/work/mysql-example$`</span>
+<span style="color:green;">`mysqldump -u mysql -p test > data/test.sql`</span><br>
+<span style="color:green;">`Enter password :`</span><br>
+<span style="color:red;">`dcp:~/work/mysql-example$`</span>
+<span style="color:green;">`mysql -u mysql -p test < ~/work/mysql-example/data/test.sql`</span><br>
+<span style="color:green;">`Enter password :`</span>
 
 ## Access a MySQL database through Python
 
