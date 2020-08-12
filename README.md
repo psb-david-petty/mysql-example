@@ -500,7 +500,7 @@ Sophie	Wilson	F	1985	SophieWilson@pioneers.computer	"Sophie Wilson" <SophieWilso
 <span style="color:green;">`mysqldump -u mysql -p test > data/test.sql`</span><br>
 <span style="color:green;">`Enter password :`</span><br>
 <span style="color:red;">`dcp:~/work/mysql-example$`</span>
-<span style="color:green;">`mysql -u mysql -p test < ~/work/mysql-example/data/test.sql`</span><br>
+<span style="color:green;">`mysql -u mysql -p test < data/test.sql`</span><br>
 <span style="color:green;">`Enter password :`</span><br>
 <span style="color:red;">`dcp:~/work/mysql-example$`</span>
 <span style="color:green;">`cat data/test.sql`</span>
